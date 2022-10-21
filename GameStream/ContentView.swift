@@ -140,25 +140,32 @@ struct InicioSesionView: View
                     Button {InicioSesionFacebook()}
                     label:
                     {
-                        Text("Facebook").fontWeight(.bold)
+                        HStack
+                        {
+                            Image(systemName: "display")
+                            Text("Facebook")
+                        
+                        }.fontWeight(.bold)
                             .foregroundColor(Color("Light-Gray"))
-                            .frame(maxWidth: .infinity, alignment: .center)
                             .frame(width: 150, height: 40, alignment: .center)
                             .background(Color("Blue-Gray"))
-                            .cornerRadius(10.0)
+                        .cornerRadius(10.0)
                     }
                     
                     
                     Button {InicioSesionTwitter()}
                     label:
                     {
-                        Text("Twitter")
-                    
-                            .fontWeight(.bold)
+                        HStack
+                        {
+                            Image(systemName: "pc")
+                            Text("Twitter")
+                        
+                        }.fontWeight(.bold)
                             .foregroundColor(Color("Light-Gray"))
                             .frame(width: 150, height: 40, alignment: .center)
                             .background(Color("Blue-Gray"))
-                            .cornerRadius(10.0)
+                        .cornerRadius(10.0)
                         
                     }
                     
