@@ -66,6 +66,7 @@ struct InicioSesionView: View
 {
     @State var correo: String = ""
     @State var password: String = ""
+    @State var passwordVisible: Bool = false
     
     var body: some View
     {
@@ -103,16 +104,30 @@ struct InicioSesionView: View
                             .foregroundColor(Color("Light-Gray"))
                     }
                     
-                    SecureField("", text: $password)
-                    
-                    
+                    HStack
+                    {
+                        if !passwordVisible
+                        {
+                            SecureField("", text: $password)
+                        }
+                        else
+                        {
+                            TextField("", text: $password)
+                        }
+                        Button(
+                            action: {passwordVisible.toggle()},
+                            label:
+                                {
+                                    Image(systemName: "eye.fill")
+                                    .foregroundColor(Color("Dark-Cian"))
+                                })
+                    }
                 }
                 
                 Divider().frame(height: 1)
                     .background(Color("Dark-Cian"))
                     .padding(.bottom)
-                
-                
+                                
                 Text("Olvidaste tu password??")
                     .font(.footnote).frame(width: 300, alignment: .trailing)
                     .foregroundColor(Color("Dark-Cian"))
