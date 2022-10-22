@@ -33,7 +33,7 @@ struct Home: View {
                 .tabItem
                 {
                     Image(systemName: "house")
-                    Text("Home")
+                    Text("Inicio")
                 }
             
             Text("Pantalla Favoritos")
