@@ -10,18 +10,26 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
 
-        ZStack
+        
+        NavigationView
         {
-            Spacer()
-            Color("Marine").ignoresSafeArea()
-            VStack
+            ZStack
             {
-                Image("AppLogo").resizable().aspectRatio(contentMode: .fit).frame(width: 250).padding(.bottom, 42)
-                
-                InicioSesionYRegistro()
-                
-            }
+                Spacer()
+                Color("Marine").ignoresSafeArea()
+                VStack
+                {
+                    Image("AppLogo").resizable().aspectRatio(contentMode: .fit).frame(width: 250).padding(.bottom, 42)
+                    
+                    InicioSesionYRegistro()
+                    
+                }
+            }.navigationBarHidden(true)
+            
+            
         }
+        
+        
     }
 }
 
@@ -62,12 +70,12 @@ struct InicioSesionYRegistro: View {
         }
     }
 }
-
 struct InicioSesionView: View
 {
     @State var correo: String = ""
     @State var password: String = ""
     @State var passwordVisible: Bool = false
+    @State var isPantallaHomeActive: Bool = false
     
     var body: some View
     {
@@ -134,7 +142,7 @@ struct InicioSesionView: View
                     .foregroundColor(Color("Dark-Cian"))
                     .padding(.bottom, 70)
                 
-                Button {IniciarSesion()}
+                Button {iniciarSesion() }
                 label:
                 {
                     Text("INICIAR SESION").fontWeight(.bold)
@@ -150,7 +158,6 @@ struct InicioSesionView: View
                     .padding(.vertical, 30)
                     .frame(maxWidth: .infinity, alignment: .center)
                     
-                
                 HStack
                 {
                     Button {InicioSesionFacebook()}
@@ -190,8 +197,16 @@ struct InicioSesionView: View
                 
                 
             }.padding(.horizontal, 77)
+            
+            NavigationLink(
+                destination: Home(),
+                isActive: $isPantallaHomeActive,
+                label: {EmptyView()})
         }
     }
+    
+    
+    func iniciarSesion(){isPantallaHomeActive = true}
 }
 
 struct RegistroView: View
@@ -416,9 +431,12 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-func IniciarSesion(){
-    print("Estoy inciando sesion")
-}
+
+//intento para sacar la funcion que manda a home fuera del struct inicio de sesion
+func iniciarSesion2()
+{ InicioSesionView().isPantallaHomeActive = true }
+ 
+
 
 func InicioSesionFacebook(){
     print("Estoy inciando sesion con facebook")
@@ -443,3 +461,5 @@ func RegistroConFacebook(){
 func RegistroConTwitter(){
     print("Estoy registrandome con twitter")
 }
+
+
