@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        NavigationView
+        NavigationStack
         {
             ZStack
             {
@@ -141,15 +141,16 @@ struct InicioSesionView: View
                     .foregroundColor(Color("Dark-Cian"))
                     .padding(.bottom, 70)
                 
-                Button {iniciarSesion() }
-                label:
-                {
-                    Text("INICIAR SESION").fontWeight(.bold)
-                        .foregroundColor(Color("Light-Gray"))
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
-                        .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color("Dark-Cian"), lineWidth: 2.0).shadow(color: .white, radius: 6.0))
-                }
+                NavigationLink(
+                    destination: Home(),
+                    label:
+                        {
+                        Text("INICIAR SESION").fontWeight(.bold)
+                            .foregroundColor(Color("Light-Gray"))
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(EdgeInsets(top: 11, leading: 18, bottom: 11, trailing: 18))
+                            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color("Dark-Cian"), lineWidth: 2.0).shadow(color: .white, radius: 6.0))
+                        })
                 
                 Text("Iniciar Sesion con Redes Sociales")
                     .fontWeight(.bold)
@@ -173,8 +174,6 @@ struct InicioSesionView: View
                             .background(Color("Blue-Gray"))
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
-                    
-                    
                     Button {InicioSesionTwitter()}
                     label:
                     {
@@ -190,26 +189,10 @@ struct InicioSesionView: View
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                         
                     }
-                    
                 }
-
-                
-                
             }.padding(.horizontal, 77)
-            
-            NavigationLink(
-                destination: Home(),
-                isActive: $isPantallaHomeActive,
-                label: {EmptyView()})
-            
- /*
-  
-  */
         }
     }
-    
-    
-    func iniciarSesion(){isPantallaHomeActive = true}
 }
 
 struct RegistroView: View
@@ -433,13 +416,7 @@ struct ContentView_Previews: PreviewProvider {
         Image("Pantalla2").resizable().ignoresSafeArea()
     }
 }
-
-
-//intento para sacar la funcion que manda a home fuera del struct inicio de sesion
-func iniciarSesion2()
-{ InicioSesionView().isPantallaHomeActive = true }
  
-
 
 func InicioSesionFacebook(){
     print("Estoy inciando sesion con facebook")
