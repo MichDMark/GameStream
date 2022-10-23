@@ -201,6 +201,10 @@ struct InicioSesionView: View
                 destination: Home(),
                 isActive: $isPantallaHomeActive,
                 label: {EmptyView()})
+            
+ /*
+  
+  */
         }
     }
     
@@ -460,5 +464,3 @@ func RegistroConFacebook(){
 func RegistroConTwitter(){
     print("Estoy registrandome con twitter")
 }
-
-
