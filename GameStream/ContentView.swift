@@ -191,6 +191,9 @@ struct InicioSesionView: View
                         
                     }
                 }
+                
+                
+                
             }.padding(.horizontal, 77)
         }
     }

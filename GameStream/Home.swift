@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct Home: View {
     
@@ -46,6 +47,8 @@ struct Home: View {
                 }.tag(3)
             
         }.accentColor(.white)
+        
+        
         
         
     }
@@ -116,7 +119,11 @@ struct PantallaHome: View
                     .clipShape(Capsule())
                 
                 
-                
+                ScrollView(showsIndicators: false)
+                {
+                    SubModuloHome()
+                                    
+                }
                 
             }.padding(.horizontal, 18)
             
@@ -124,12 +131,255 @@ struct PantallaHome: View
             
         }.navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
+            
     }
+    
+ 
     
     
     func busqueda()
     {
         print("El usuario esta buscando \(textoDeBusqueda)")
+    }
+}
+
+
+struct SubModuloHome: View
+{
+    //esta es una url por default, si las demas fallan, muestra esta para que no de error
+    @State var urlSeleccionada = "https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4"
+    @State var isPlayerActive = false
+    
+    let urlVideos:[String] = ["https://cdn.cloudflare.steamstatic.com/steam/apps/256658589/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256671638/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256720061/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256814567/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256705156/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256801252/movie480.mp4","https://cdn.cloudflare.steamstatic.com/steam/apps/256757119/movie480.mp4"]
+    
+    var body: some View
+    {
+        
+        
+        VStack {
+            Text("LOS MAS POPULARES").font(.title3)
+                .foregroundColor(Color.white)
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.top)
+            
+            ZStack
+            {
+                Button(
+                    action:{
+                    urlSeleccionada = urlVideos[0]
+                    print("URL: \(urlSeleccionada)")
+                    isPlayerActive = true
+                },
+            label:
+                        {
+                            VStack(spacing: 0)
+                            {
+                                Image("The Witcher 3").resizable().scaledToFill()
+                                Text("The Witcher 3").frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+                                    .background(Color("Blue-Gray"))
+                            }
+                        })
+                
+                Image(systemName: "play.circle.fill").resizable()
+                    .foregroundColor(Color(.white))
+                    .frame(width: 42, height: 42)
+
+                
+            }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+                .padding(.vertical)
+            
+  
+            Text("CATEGORÍAS SUGERIDAS PARA TI").font(.title3)
+                .foregroundColor(Color.white)
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 20)
+            
+            ScrollView(.horizontal, showsIndicators: false)
+            {
+                HStack
+                {
+                    Button(action: { print("manda a FPS")},
+                           label:
+                            {
+                                ZStack
+                                    {
+                                        RoundedRectangle(cornerRadius: 8).fill(Color("Blue-Gray"))
+                                            .frame(width: 160, height: 90)
+                                        
+                                        Image("FPS").resizable().scaledToFit()
+                                            .frame(width: 42, height: 42)
+                                    }
+                            })
+                    
+                    Button(action: { print("manda a RPG")},
+                           label:
+                            {
+                                ZStack
+                                    {
+                                        RoundedRectangle(cornerRadius: 8).fill(Color("Blue-Gray"))
+                                            .frame(width: 160, height: 90)
+                                        
+                                        Image("RPG").resizable().scaledToFit()
+                                            .frame(width: 42, height: 42)
+                                    }
+                            })
+                    
+                    Button(action: { print("manda a Open World")},
+                           label:
+                            {
+                                ZStack
+                                    {
+                                        RoundedRectangle(cornerRadius: 8).fill(Color("Blue-Gray"))
+                                            .frame(width: 160, height: 90)
+                                        
+                                        Image("OpenWorld").resizable().scaledToFit()
+                                            .frame(width: 42, height: 42)
+                                    }
+                            })
+                    
+                    
+        
+                }
+                
+            }
+   
+            
+            Text("RECOMENDADO PARA TI").font(.title3)
+                .foregroundColor(Color.white)
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 20)
+            
+            ScrollView(.horizontal, showsIndicators: false)
+            {
+                   HStack
+                 {
+                     
+                     Button(
+                         action:
+                             {
+                                 urlSeleccionada = urlVideos[1]
+                                 print("URL: \(urlSeleccionada)")
+                                 isPlayerActive = true
+                             },
+                         label:
+                             {
+                                 Image("Abzu").resizable()
+                                     .scaledToFit()
+                                     .frame(width: 240, height: 135)
+                                 
+                             })
+                     
+                     Button(
+                         action:
+                             {
+                                 urlSeleccionada = urlVideos[2]
+                                 print("URL: \(urlSeleccionada)")
+                                 isPlayerActive = true
+                             },
+                         label:
+                             {
+                                 Image("Crash Bandicoot").resizable()
+                                     .scaledToFit()
+                                     .frame(width: 240, height: 135)
+                                 
+                             })
+                     
+                     
+                     Button(
+                         action:
+                             {
+                                 urlSeleccionada = urlVideos[3]
+                                 print("URL: \(urlSeleccionada)")
+                                 isPlayerActive = true
+                             },
+                         label:
+                             {
+                                 Image("DEATH STRANDING").resizable()
+                                     .scaledToFit()
+                                     .frame(width: 240, height: 135)
+                                 
+                             })
+         
+                 }
+                
+                
+            }
+            
+            Text("VIDEOS QUE PODRIAN GUSTARTE").font(.title3)
+                .foregroundColor(Color.white)
+                .bold()
+                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 20)
+            
+            ScrollView(.horizontal, showsIndicators: false)
+            {
+                   HStack
+                 {
+                     
+                     Button(
+                         action:
+                             {
+                                 urlSeleccionada = urlVideos[6]
+                                 print("URL: \(urlSeleccionada)")
+                                 isPlayerActive = true
+                             },
+                         label:
+                             {
+                                 Image("Grand Theft Auto V").resizable()
+                                     .scaledToFit()
+                                     .frame(width: 240, height: 135)
+                                 
+                             })
+                     
+                     Button(
+                         action:
+                             {
+                                 urlSeleccionada = urlVideos[5]
+                                 print("URL: \(urlSeleccionada)")
+                                 isPlayerActive = true
+                             },
+                         label:
+                             {
+                                 Image("Hades").resizable()
+                                     .scaledToFit()
+                                     .frame(width: 240, height: 135)
+                                 
+                             })
+                     
+                     
+                     Button(
+                         action:
+                             {
+                                 urlSeleccionada = urlVideos[4]
+                                 print("URL: \(urlSeleccionada)")
+                                 isPlayerActive = true
+                             },
+                         label:
+                             {
+                                 Image("Cuphead").resizable()
+                                     .scaledToFit()
+                                     .frame(width: 240, height: 135)
+                                 
+                             })
+         
+                 }
+                
+                
+            }
+            
+        }
+        
+        
+        NavigationLink(
+            destination: VideoPlayer(player: AVPlayer(url: URL(string: urlSeleccionada)!))
+                .frame(width: 400, height: 300),
+            isActive: $isPlayerActive,
+            label: {EmptyView()})
+        
+        
     }
 }
 
