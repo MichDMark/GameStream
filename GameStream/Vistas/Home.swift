@@ -22,9 +22,10 @@ struct Home: View {
                     Image(systemName: "person")
                     Text("Perfil").foregroundColor(.red)
                 }.tag(0)
+            
+            
 
-            Text("Pantalla Juegos")
-                
+            GamesView()
                 .tabItem
                 {
                     Image(systemName: "gamecontroller")
