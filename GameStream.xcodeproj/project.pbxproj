@@ -11,6 +11,9 @@
 		2C37EA0C2900FD5300FF6FFD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C37EA0B2900FD5300FF6FFD /* ContentView.swift */; };
 		2C37EA0E2900FD5400FF6FFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C37EA0D2900FD5400FF6FFD /* Assets.xcassets */; };
 		2C37EA112900FD5400FF6FFD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C37EA102900FD5400FF6FFD /* Preview Assets.xcassets */; };
+		2C3AC2A729084006001FF36B /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3AC2A629084006001FF36B /* GamesView.swift */; };
+		2C3AC2AC2908B516001FF36B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3AC2AB2908B516001FF36B /* Model.swift */; };
+		2C3AC2AE2908B54E001FF36B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3AC2AD2908B54E001FF36B /* ViewModel.swift */; };
 		2CDCECF32903ADA40093CA0C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCECF22903ADA40093CA0C /* Home.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +23,9 @@
 		2C37EA0B2900FD5300FF6FFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2C37EA0D2900FD5400FF6FFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C37EA102900FD5400FF6FFD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2C3AC2A629084006001FF36B /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
+		2C3AC2AB2908B516001FF36B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2C3AC2AD2908B54E001FF36B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		2CDCECF22903ADA40093CA0C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,6 +43,7 @@
 		2C37E9FD2900FD5300FF6FFD = {
 			isa = PBXGroup;
 			children = (
+				2C37EA092900FD5300FF6FFD /* GameStreamApp.swift */,
 				2C37EA082900FD5300FF6FFD /* GameStream */,
 				2C37EA072900FD5300FF6FFD /* Products */,
 			);
@@ -53,9 +60,9 @@
 		2C37EA082900FD5300FF6FFD /* GameStream */ = {
 			isa = PBXGroup;
 			children = (
-				2C37EA092900FD5300FF6FFD /* GameStreamApp.swift */,
-				2C37EA0B2900FD5300FF6FFD /* ContentView.swift */,
-				2CDCECF22903ADA40093CA0C /* Home.swift */,
+				2C3AC2AA2908B3EB001FF36B /* VistasModelos */,
+				2C3AC2A92908B3E3001FF36B /* Modelos */,
+				2C3AC2A82908B3D7001FF36B /* Vistas */,
 				2C37EA0D2900FD5400FF6FFD /* Assets.xcassets */,
 				2C37EA0F2900FD5400FF6FFD /* Preview Content */,
 			);
@@ -68,6 +75,32 @@
 				2C37EA102900FD5400FF6FFD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2C3AC2A82908B3D7001FF36B /* Vistas */ = {
+			isa = PBXGroup;
+			children = (
+				2C3AC2A629084006001FF36B /* GamesView.swift */,
+				2C37EA0B2900FD5300FF6FFD /* ContentView.swift */,
+				2CDCECF22903ADA40093CA0C /* Home.swift */,
+			);
+			path = Vistas;
+			sourceTree = "<group>";
+		};
+		2C3AC2A92908B3E3001FF36B /* Modelos */ = {
+			isa = PBXGroup;
+			children = (
+				2C3AC2AB2908B516001FF36B /* Model.swift */,
+			);
+			path = Modelos;
+			sourceTree = "<group>";
+		};
+		2C3AC2AA2908B3EB001FF36B /* VistasModelos */ = {
+			isa = PBXGroup;
+			children = (
+				2C3AC2AD2908B54E001FF36B /* ViewModel.swift */,
+			);
+			path = VistasModelos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +173,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3AC2AC2908B516001FF36B /* Model.swift in Sources */,
 				2C37EA0C2900FD5300FF6FFD /* ContentView.swift in Sources */,
 				2CDCECF32903ADA40093CA0C /* Home.swift in Sources */,
+				2C3AC2A729084006001FF36B /* GamesView.swift in Sources */,
+				2C3AC2AE2908B54E001FF36B /* ViewModel.swift in Sources */,
 				2C37EA0A2900FD5300FF6FFD /* GameStreamApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
