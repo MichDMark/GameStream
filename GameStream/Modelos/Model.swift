@@ -23,7 +23,7 @@ struct Games:Codable
 //
 //este game es parte de Games, por eso es codable
 //darle nombre a las variables igual al nombre que tienen en el json
-struct Game:Codable
+struct Game:Codable, Hashable
 {
     var title:String
     var studio:String
@@ -37,7 +37,7 @@ struct Game:Codable
 }
 
 
-struct videoUrl:Codable
+struct videoUrl:Codable, Hashable
 {
     var mobile:String
     var tablet:String
